@@ -7,28 +7,44 @@ const path = require('path');   // Path module to handle file paths
 // The function inside will run every time the server receives a request
 // req = incoming request from browser
 // res = response we send back to browser
+// Create an HTTP server
+// The function inside runs every time a client (browser) makes a request
 const server = http.createServer((req, res) => {
-  // Map the requested URL to a file
-  let filePath;
-  if (req.url === '/' || req.url === '/index.html') {
-    filePath = path.join(__dirname, 'index.html');
-  } else {
-    // For anything else, return 404
-    res.writeHead(404, { 'Content-Type': 'text/plain' });
-    res.end('404 Page Not Found');
-    return;
-  }
+
+  // Determine the file path to serve based on the requested URL
+  // If the URL is '/' (homepage), serve 'index.html'
+  // Otherwise, serve the file that matches the URL inside 'public' folder
+  let filePath = path.join(__dirname, 'public', req.url === '/' ? 'index.html' : req.url);
+
+  // Extract the file extension (e.g., .html, .css, .js)
+  // This helps in setting the correct Content-Type header for the browser
+  let ext = path.extname(filePath);
+
+  // Default Content-Type is 'text/html' (for HTML files)
+  let contentType = 'text/html';
+
+  // Set the Content-Type header based on the file extension
+  // so the browser knows how to handle the file (HTML, CSS, JS, etc.)
+  if (ext === '.js') contentType = 'text/javascript';
+  if (ext === '.css') contentType = 'text/css';
+  if (ext === '.json') contentType = 'application/json';
+  if (ext === '.png') contentType = 'image/png';
+  if (ext === '.jpg') contentType = 'image/jpg';
 
 
-  // Read and send the HTML file
-  fs.readFile(filePath, (err, content) => {  // read the file asynchronously
+  // Read and send the files asynchronously
+  fs.readFile(filePath, (err, content) => {
     if (err) {
-      res.writeHead(500, { 'Content-Type': 'text/plain' }); // send error if file can't be read
+      // send error if file can't be read
+      res.writeHead(500);
       res.end('Server Error');
-      return;
+    } else {
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(content);
     }
-    res.writeHead(200, { 'Content-Type': 'text/html' }); // tell browser it's HTML
-    res.end(content); // send the HTML content to browser
+
+
+
   });
 });
 
