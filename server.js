@@ -1,20 +1,28 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve all static files in 'public' folder
+// Serve all static assets in public/
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Maps '/page' to 'public/pages/page.html'
-app.get('/:page', (req, res, next) => {
-  const pageName = req.params.page;
-  const filePath = path.join(__dirname, 'public', 'pages', `${pageName}.html`);
+// Serve homepage
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
-  res.sendFile(filePath, (err) => {
+// Serve all pages inside public/pages/ with friendly URLs
+app.get('/:page', (req, res, next) => {
+  const pageFile = path.join(__dirname, 'public', 'pages', `${req.params.page}.html`);
+  
+  // Check if the file exists
+  fs.access(pageFile, fs.constants.F_OK, (err) => {
     if (err) {
-      next(); // go to 404 if file not found
+      next(); // file doesn't exist → 404
+    } else {
+      res.sendFile(pageFile);
     }
   });
 });
