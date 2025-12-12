@@ -1,0 +1,35 @@
+big_express_project/
+│
+├─ src/
+│   ├─ app.js                // main app setup
+│   ├─ server.js             // starts the server
+│   ├─ config/               // database, environment configs
+│   │   └─ db.js
+│   │
+│   ├─ routes/               // all route files
+│   │   ├─ users.routes.js
+│   │   ├─ tasks.routes.js
+│   │   └─ auth.routes.js
+│   │
+│   ├─ controllers/          // route logic separated
+│   │   ├─ users.controller.js
+│   │   ├─ tasks.controller.js
+│   │   └─ auth.controller.js
+│   │
+│   ├─ models/               // database models
+│   │   ├─ user.model.js
+│   │   └─ task.model.js
+│   │
+│   ├─ middleware/           // auth, validation, logging...
+│   │   └─ auth.middleware.js
+│   │
+│   ├─ services/             // business logic (optional)
+│   │   ├─ email.service.js
+│   │   └─ task.service.js
+│   │
+│   └─ utils/                // helper functions
+│       └─ sendEmail.js
+│
+├─ public/                   // static assets
+├─ package.json
+└─ .env
