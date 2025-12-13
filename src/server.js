@@ -8,18 +8,21 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 
 // Middleware to Serve static files in public/
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "..", "public")));
 
 
 // Import routes
 const pagesRoutes = require("./routes/pages");
 const formRoutes = require("./routes/form");
 const uploadRoutes = require("./routes/upload");
+const pokemonRoutes = require("./routes/pokemon");
 
 // Use routes
 app.use("/", pagesRoutes);
 app.use("/", formRoutes);
 app.use("/", uploadRoutes);
+app.use("/pokemon", pokemonRoutes);
+
 
 // 404 handler
 app.use((req, res) => res.status(404).send("404 Page Not Found"));

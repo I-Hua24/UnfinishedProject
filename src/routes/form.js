@@ -1,10 +1,13 @@
 // routes/form.js
 const express = require("express");
 const router = express.Router();
+const path = require("path");
+
 // Serve the HTML page
 router.get("/form", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/pages/form.html"));
+  res.sendFile(path.join(__dirname, "..", "..", "public", "pages", "form.html"));
 });
+//consider using process.cwd() instead of __dirname
 
 // --- Handle GET form submission ---
 router.get("/formHandler", (req, res) => {
