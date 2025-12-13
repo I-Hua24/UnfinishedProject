@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/I-Hua24/UnfinishedProject#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "express": "^5.2.1",
     "multer": "^2.0.2",
     "mysql": "^2.18.1"
