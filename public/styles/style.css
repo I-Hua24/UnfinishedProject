@@ -1,0 +1,83 @@
+* {
+    /* universal selector to apply styles to all elements */
+    font-family: Arial, "Helvetica", sans-serif;
+    /* chosen because it's clean and readable */
+    /*color: red; /*test*/
+}
+
+header {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    background-color: #E6C47F;
+    /*TODO: use highlight color*/
+
+}
+
+nav {
+    margin-left: auto;
+    /* <-- pushes nav to the far right */
+}
+
+header p {
+    width: auto;
+    padding: 2vw;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+
+
+}
+
+nav ul li {
+
+
+    width: auto;
+    padding: 2vw;
+}
+
+nav ul li a {
+    text-decoration: none;
+    /* remove underline */
+    color: black;
+    /* link color */
+}
+
+nav p {
+    display: none;
+}
+
+
+@media (max-width: 600px) {
+
+    /*phone and small tablet screens*/
+    nav ul {
+        display: none
+    }
+
+    nav p {
+        display: block
+    }
+}
+
+body {
+    background-color: #f5eee2;
+
+    margin: 0;
+}
+
+main {
+    background-color: white;
+    padding: 2vw;
+    border-radius: 2vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 2vw;
+
+}
+
+footer {
+    text-align: center;
+    padding: 2vw;
+}
