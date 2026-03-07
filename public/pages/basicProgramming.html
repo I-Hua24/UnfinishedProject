@@ -1,0 +1,36 @@
+Github
+
+Why should I know how to use github?
+
+History
+Beyond writing code, developers need to track changes to manage projects and solve problems. 
+In the late 1990s and early 2000s, tools like Concurrent Versions System (CVS), SourceForge, 
+Perforce, and later Subversion (SVN) handled version control, but they were often clunky and 
+hard to share among collaborators. Git, introduced in 2005, solved many technical issues, 
+though it was intimidating for newcomers. GitHub, launched in 2008, made Git accessible and 
+social, enabling seamless collaboration, easy code sharing, and community interaction. By 
+being early and community-focused, GitHub became the standard platform for code sharing, 
+even as competitors like GitLab, Bitbucket, SourceHut, and Gitea emerged. Today, it’s the 
+platform almost every developer uses.
+
+
+Basic Git Branching Model
+          hotfix/critical ----\
+                               \
+main -----------------------------> main (v1)
+           \                          ^
+            release/v1.0 -------------|   (merge release fixes)
+             \                        /
+development ----o----o---------------> development
+           |        |
+        feature1  feature2
+
+
+In this model, 'main' holds stable releases, 'development' is for ongoing work, and 'feature' branches are for specific tasks. 
+'Release' branches prepare new versions, allowing for final testing and fixes before merging into 'main'.
+
+main = live production code (food on customer's table)
+release = preparing for new version (merging from development for final testing and fixes and approval) (food passed to waiter for final plating)
+development = integration of features for next release (kitchen where food is prepared)
+feature branches = individual features or bug fixes (ingredients being prepped for cooking)
+hotfix branches = urgent fixes to production (extra condiments added directly to plated food)

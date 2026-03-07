@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Form</title>
+</head>
+<body>
+
+  <h1>GET Form</h1>
+  <form method="get" action="/formHandler">
+    <input type="text" name="inputName" placeholder="Enter something" />
+    <button type="submit">Send with GET</button>
+  </form>
+
+  <h1>POST Form</h1>
+  <form method="post" action="/formHandler">
+    <input type="text" name="inputName" placeholder="Enter something" />
+    <button type="submit">Send with POST</button>
+  </form>
+
+
+  <h1>Upload Form</h1>
+
+  <form method="post" action="/formHandlerMulter" enctype="multipart/form-data">
+    <input type="text" name="inputName" placeholder="Enter something" />
+    <br><br>
+    <input type="file" name="logoFile" />
+    <br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+
+
+</body>
+</html>
