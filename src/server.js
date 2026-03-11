@@ -1,15 +1,18 @@
-const express = require("express");
-const path = require("path");
-const fs = require("fs");
+const express = require('express');
+const path = require('path');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware to parse POST form data
-app.use(express.urlencoded({ extended: false }));
+// Serve static files from public/
+app.use(express.static(path.join(__dirname, '../public')));
 
-// Middleware to Serve static files in public/
-app.use(express.static(path.join(__dirname, "..", "public")));
+// Example route
+app.get('/fonts', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/temp/fonts.html'));
+});
 
+<<<<<<< Updated upstream
 
 // Import routes
 const pagesRoutes = require("./routes/pages");
@@ -68,3 +71,8 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 /* use the following
 http://localhost:3000
 */
+=======
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+>>>>>>> Stashed changes

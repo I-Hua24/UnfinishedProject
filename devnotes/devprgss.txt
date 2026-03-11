@@ -1,0 +1,5 @@
+
+setting things up
+npm init -y
+npm install express
+npm install nodemon body-parser dotenv 
