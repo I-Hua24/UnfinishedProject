@@ -5,10 +5,15 @@ root/
 |
 ├─ public/              // Static files served to clients (HTML, CSS, JS, images)
 ├─ src/                 // Backend source code (Express routes, controllers, models, etc.)
+|  └─ views             // due to css management it's better long term to keep all the pages here  
 |
 ├─ uploads/             // User-uploaded files (images, documents, etc.) TODO: check usage and handle safely
 ├─ .gitignore           // TODO: Add this file to ignore node_modules, uploads (optional), and other sensitive files
-└─ README.md            // Project documentation, instructions, and notes
+├─ README.md            // Project documentation, instructions, and notes
+|  ├─ 
+|  └─   
+├─ 
+└─ 
 
 
 

@@ -14,15 +14,12 @@ header {
 
 }
 
+
+
 nav {
     margin-left: auto;
     /*color: red; /*test*/
     /* <-- pushes nav to the far right */
-}
-
-header p {
-    width: auto;
-    padding: 2vw;
 }
 
 nav ul {
@@ -46,7 +43,7 @@ nav ul li a {
     /* link color */
 }
 
-nav p {
+nav h3 {
     display: none;
 }
 

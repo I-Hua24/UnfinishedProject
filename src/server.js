@@ -7,72 +7,23 @@ const PORT = process.env.PORT || 3000;
 // Serve static files from public/
 app.use(express.static(path.join(__dirname, '../public')));
 
-// Example route
+// Define routes (this is where you link all your html files)
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/index.html'));
+});
+app.get('/WebDevelopment', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/webdev/webdev.html'));
+});
 app.get('/fonts', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/temp/fonts.html'));
+    res.sendFile(path.join(__dirname, 'views/webdev/fonts.html'));
+});
+app.get('/forms', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/webdev/form.html'));
 });
 
-<<<<<<< Updated upstream
-
-// Import routes
-const pagesRoutes = require("./routes/pages");
-const formRoutes = require("./routes/form");
-const uploadRoutes = require("./routes/upload");
-const pokemonRoutes = require("./routes/pokemon");
-
-// Use routes
-app.use("/", pagesRoutes);
-app.use("/", formRoutes);
-app.use("/", uploadRoutes);
-app.use("/pokemon", pokemonRoutes);
+//TODO: ask if adding more lines is fine or i should make a list  of routes and file names
 
 
-// 404 handler
-app.use((req, res) => res.status(404).send("404 Page Not Found"));
-
-// Start server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-/* use the following
-http://localhost:3000
-*/
-const express = require("express");
-const path = require("path");
-const fs = require("fs");
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Middleware to parse POST form data
-app.use(express.urlencoded({ extended: false }));
-
-// Middleware to Serve static files in public/
-app.use(express.static(path.join(__dirname, "..", "public")));
-
-
-// Import routes
-const pagesRoutes = require("./routes/pages");
-const formRoutes = require("./routes/form");
-const uploadRoutes = require("./routes/upload");
-const pokemonRoutes = require("./routes/pokemon");
-
-// Use routes
-app.use("/", pagesRoutes);
-app.use("/", formRoutes);
-app.use("/", uploadRoutes);
-app.use("/pokemon", pokemonRoutes);
-
-
-// 404 handler
-app.use((req, res) => res.status(404).send("404 Page Not Found"));
-
-// Start server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-/* use the following
-http://localhost:3000
-*/
-=======
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
->>>>>>> Stashed changes

@@ -1,26 +1,31 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path'); 
-
-// Create server
-const server = http.createServer((req, res) => {
-  // Serve index.html for all requests
-  const filePath = path.join(__dirname, 'index.html');
-
-  fs.readFile(filePath, (err, content) => {
-    if (err) {
-      res.writeHead(500, { 'Content-Type': 'text/plain' });
-      res.end('Error loading page');
-      return;
-    }
-
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.end(content);
-  });
-});
-
-// Listen on the port Render assigns
+const express = require("express");
+const path = require("path");
+const fs = require("fs");
+const app = express();
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+
+// Middleware to parse POST form data
+app.use(express.urlencoded({ extended: false }));
+
+// Middleware to Serve static files in public/
+app.use(express.static(path.join(__dirname, "..", "public")));
+
+
+// Import routes
+const pagesRoutes = require("./routes/pages");
+const formRoutes = require("./routes/form");
+const uploadRoutes = require("./routes/upload");
+const pokemonRoutes = require("./routes/pokemon");
+
+// Use routes
+app.use("/", pagesRoutes);
+app.use("/", formRoutes);
+app.use("/", uploadRoutes);
+app.use("/pokemon", pokemonRoutes);
+
+
+// 404 handler
+app.use((req, res) => res.status(404).send("404 Page Not Found"));
+
+// Start server
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
