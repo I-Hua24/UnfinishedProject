@@ -16,7 +16,9 @@ root/
 └─ 
 
 
-
+TODO:
+Learn how to attatch MongoDB
+https://www.mongodb.com/
 
 PC:
 cd src
