@@ -3,6 +3,8 @@
     font-family: "Atkinson Hyperlegible", Arial, "Helvetica", sans-serif;
     line-height: 1.6;
     letter-spacing: 0.03em;
+    /*border-style: dashed;   /*test*/
+
 }
 
 header {
@@ -10,30 +12,47 @@ header {
     margin: 0;
     align-items: center;
     background-color: #E6C47F;
+    padding: 0;
     /*TODO: use highlight color*/
 
 }
 
+header h1 {
+    margin: 0;
+    padding: 2vw;
+    padding-left: 2.5vw;
+    /*background-color: red;/*test*/
+
+}
 
 
 nav {
     margin-left: auto;
-    /*color: red; /*test*/
-    /* <-- pushes nav to the far right */
+    /* pushes nav to the far right */
+    padding: 0;
+    
+
+    /*background-color: red;/*test*/
+
 }
+
 
 nav ul {
     display: flex;
     list-style-type: none;
-
+    margin: 0;
+    padding: 0;
+    /*border-style: dashed;
+    /*test*/
 
 }
 
 nav ul li {
-
-
     width: auto;
     padding: 2vw;
+    /*border-style: dotted;
+    /*test*/
+
 }
 
 nav ul li a {
@@ -41,22 +60,31 @@ nav ul li a {
     /* remove underline */
     color: black;
     /* link color */
+    /*background-color: blue;/*test*/
 }
 
 nav h3 {
+    /*hidden menu tab for small screens*/
     display: none;
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 605px) {
+    /* Adjust the breakpoint as needed */
 
     /*phone and small tablet screens*/
     nav ul {
         display: none
     }
 
-    nav p {
-        display: block
+    nav h3 {
+        margin:0;
+        display: block;
+        padding: 2vw;
+
+        /*border-style: dashed;
+        /*test*/
+
     }
 }
 
